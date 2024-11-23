@@ -1,4 +1,4 @@
-import json
+import pickle
 import pandas as pd
 from sklearn.utils import shuffle
 # Đọc dữ liệu từ file small_rating.csv
@@ -64,12 +64,17 @@ def update_usermovie2rating_test(row):
 
 df_test.apply(update_usermovie2rating_test, axis=1)
 
-# Lưu dữ liệu vào file json
-with open('json/user2movie.json', 'w') as f:
-    json.dump(user2movie, f)
-with open('json/movie2user.json', 'w') as f:
-    json.dump(movie2user, f)
-with open('json/usermovie2rating.json', 'w') as f:
-    json.dump({str(k): v for k, v in usermovie2rating.items()}, f)
-with open('json/usermovie2rating_test.json', 'w') as f:
-    json.dump({str(k): v for k, v in usermovie2rating_test.items()}, f)
+# Lưu dữ liệu vào file json dạng dictionary,
+# thực tế là các object trong python
+# lưu trữ dữ liệu dưới dạng nhị phân (binary)
+with open('json/user2movie.json', 'wb') as f:
+  pickle.dump(user2movie, f)
+
+with open('json/movie2user.json', 'wb') as f:
+  pickle.dump(movie2user, f)
+
+with open('json/usermovie2rating.json', 'wb') as f:
+  pickle.dump(usermovie2rating, f)
+
+with open('json/usermovie2rating_test.json', 'wb') as f:
+  pickle.dump(usermovie2rating_test, f)
