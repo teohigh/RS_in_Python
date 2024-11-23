@@ -7,16 +7,16 @@ from collections import Counter
 df = pd.read_csv('archive/edited_rating.csv')
 print("original dataframe size: ", len(df))
 
-N = df.userId.max() + 1 # number of users
-M = df.movie_idx.max() + 1 # number of movies
+N = df.userId.max() + 1
+M = df.movie_idx.max() + 1
 
 # Đếm số lượng đánh giá của từng người dùng và phim
 user_ids_count = Counter(df.userId)
 movie_ids_count = Counter(df.movie_idx)
 
 # Số lượng người dùng và phim muốn giữ lại
-n = 10000
-m = 2000
+n = 100
+m = 20
 
 # Lấy ra n người dùng và m phim có số lượng đánh giá nhiều nhất
 user_ids = [u for u, c in user_ids_count.most_common(n)]
