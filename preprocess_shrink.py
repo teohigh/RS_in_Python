@@ -15,8 +15,8 @@ user_ids_count = Counter(df.userId)
 movie_ids_count = Counter(df.movie_idx)
 
 # Số lượng người dùng và phim muốn giữ lại
-n = 100
-m = 20
+n = 1000
+m = 200
 
 # Lấy ra n người dùng và m phim có số lượng đánh giá nhiều nhất
 user_ids = [u for u, c in user_ids_count.most_common(n)]

@@ -99,8 +99,8 @@ for i in range(N):
     print(i)
 
 
-# sử dụng neighbors, tính MSE (Mean Squared Error) trên tập huấn luyện và tập kiểm tra
-# dự đoán đánh giá của người dùng i cho bộ phim m dựa trên đánh giá của các hàng xóm
+# Dự đoán = Trung bình trọng số của xếp hạng từ các hàng xóm,
+# cộng với trung bình đánh giá của người dùng mục tiêu.
 def predict(i, m):
   # tính trọng số độ lệch
   numerator = 0 # tử số: tính tổng trọng số các độ lệch
